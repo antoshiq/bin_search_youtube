@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <th>Канал</th>
+        <th>Видео</th>
+        <th>Просмотры</th>
+        <th>Лайки</th>
+        <th>Комментарии</th>
+    </tr>
+    {% for i in result %}
+    <tr>
+        <td><a href="https://youtube.com/channel/{{i.channel_id}}">{{i.channel}}</a></td>
+        <td><a href="{{i.link}}">{{i.title}}</a></td>
+        <td>{{i.view_count}}</td>
+        <td>{{i.like_count}}</td>
+        <td>{{i.comment_count}}</td>
+    </tr>
+    {% endfor %}
+</table>
