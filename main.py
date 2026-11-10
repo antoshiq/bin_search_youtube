@@ -4,7 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 from binary_search import get_packed_views, get_packed_comms, get_packed_likes, get_packed_engage
-
+from hashmap_func import get_item_by_id
 app = FastAPI()
 
 templates = Jinja2Templates("templates")
@@ -16,6 +16,18 @@ def main(request: Request):
         name = "index.html",
         request = request,
         context = {}
+    )
+
+@app.get("/result", response_class=HTMLResponse)
+def result(id: str = None, request: Request = None):
+    if id != None:
+
+        result = get_item_by_id(id)
+
+    return templates.TemplateResponse(
+        request=request,
+        name = "input_hash.html",
+        context = {"result": result}
     )
 
 @app.get("/results", response_class=HTMLResponse)

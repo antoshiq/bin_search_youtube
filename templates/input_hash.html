@@ -1,0 +1,29 @@
+
+<head>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    >
+
+</head>
+<div>
+    <table>
+        <tr>
+            <th>Канал</th>
+            <th>Видео</th>
+            <th>Просмотры</th>
+            <th>Лайки</th>
+            <th>Комментарии</th>
+        </tr>
+        {% if result %}
+        <tr>
+            <td><a href="https://youtube.com/channel/{{result.channel_id}}">{{result.channel}}</a></td>
+            <td><a href="{{result.link}}">{{result.title}}</a></td>
+            <td>{{result.view_count}}</td>
+            <td>{{result.like_count}}</td>
+            <td>{{result.comment_count}}</td>
+        </tr>
+        {% endif %}
+    </table>
+</div>

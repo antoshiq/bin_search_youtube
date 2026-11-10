@@ -3,6 +3,7 @@ from models import video
 
 df = pd.read_csv('youtube_video.csv')
 
+
 def views_binary_search(views_count):
     """ 
 
